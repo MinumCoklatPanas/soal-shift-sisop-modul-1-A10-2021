@@ -1,0 +1,3 @@
+0 7 * * mon bash /home/pan/sisop/soal-shift-sisop-modul-1-A10-2021/soal3/soal3d.sh
+1 18 * * mon-fri rm Koleksi.zip
+0 0 * * sat rm Koleksi.zip
