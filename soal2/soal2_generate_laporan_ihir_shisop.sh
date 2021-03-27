@@ -16,7 +16,7 @@ awk -F '\t' 'BEGIN{
 }
 END{
     printf "Transaksi terakhir dengan profit percentage terbesar yaitu %d\n",id
-    printf "dengan presentase %f%%\n\n",max_profit;
+    printf "dengan presentase %.2f%%\n\n",max_profit;
 }
 ' Laporan-TokoShiSop.tsv
 
@@ -29,7 +29,13 @@ awk -F '\t' '
 ' Laporan-TokoShiSop.tsv | awk -F '-' 'BEGIN{
     printf "Daftar nama customer di Albuquerque pada tahun 2017 antara lain:\n"
 }
-$4 >= 17 {print $1}'
+$4 >= 17 {cnt[$1]++}
+END{
+    for (key in cnt)
+    {
+        print key
+    }
+}'
 
 #2c
 awk -F '\t' 'BEGIN{

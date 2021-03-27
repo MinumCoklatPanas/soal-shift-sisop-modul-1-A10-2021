@@ -1,17 +1,11 @@
 Transaksi terakhir dengan profit percentage terbesar yaitu 62
-dengan presentase 100.000000%
+dengan presentase 100.00%
 
 Daftar nama customer di Albuquerque pada tahun 2017 antara lain:
-Michelle Lonsdale
-Michelle Lonsdale
-Benjamin Farhat
-Benjamin Farhat
-Benjamin Farhat
-Benjamin Farhat
-Benjamin Farhat
 David Wiener
 Susan Vittorini
-Susan Vittorini
+Benjamin Farhat
+Michelle Lonsdale
 
 Tipe segmen customer yang penjualannya paling sedikit adalah Home Office dengan 1783 total transaksi.
 
