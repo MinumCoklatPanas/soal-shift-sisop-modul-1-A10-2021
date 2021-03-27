@@ -1,5 +1,5 @@
 #!/bin/bash
-#cut -d " " -f 1-3 $input
+#cut -d " " -f 1-3 $filename_log
 #grep -oE "(ERROR)(.*)\(.*\)" syslog.log | sort | uniq | cut -d " " -f 2-  
 filename_log="syslog.log"
 #a
