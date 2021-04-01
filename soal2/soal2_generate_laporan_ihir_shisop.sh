@@ -8,7 +8,7 @@ awk -F '\t' 'BEGIN{
     profit = $21
     cost_price = $18-profit
     percentage = (profit/cost_price) * 100
-    if (percentage > max_profit)
+    if (percentage >= max_profit)
     {
         max_profit = percentage
         id = $1
@@ -63,13 +63,15 @@ awk -F '\t' 'BEGIN{
     cnt["West"] = 0;
 }
 {
-    cnt[$13]++;
+    cnt[$13] += $21;
 }
 END{
     mn = 100000
     name = "Central"
+    sum = 0
     for (key in cnt)
     {
+        sum += cnt[key];
         if (cnt[key] < mn && key != "Region")
         {
             mn = cnt[key];

@@ -13,7 +13,7 @@ do
     echo $filename
     mv kucing/kitten kucing/$filename
     cat tmp.log >> foto.log
-# done
+done
 
 tmp=`ls kucing/*.jpg`
 
