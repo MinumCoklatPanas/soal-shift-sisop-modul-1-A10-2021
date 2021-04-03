@@ -1,16 +1,46 @@
 # lapres-sisop-modul-1-A10-2021
 
-##Soal 1
+## Soal 1
+“Ryujin baru saja diterima sebagai IT support di perusahaan Bukapedia. Dia diberikan tugas untuk membuat laporan harian untuk aplikasi internal perusahaan, ticky. Terdapat 2 laporan yang harus dia buat, yaitu laporan daftar peringkat pesan error terbanyak yang dibuat oleh ticky dan laporan penggunaan user pada aplikasi ticky.”
+Mengolah data dari file syslog.log dan melakukan analisis kemudian hasilnya disimpan kedalam file berformat .csv
+![syslog](https://user-images.githubusercontent.com/55073331/113462774-d06a8800-944c-11eb-8b88-2fd6f8b83e6a.jpg)
 
 ####Solusi
 
+##### a. Regex untuk mengidentifikasi ERROR atau INFO
+Menggunakan regex untuk mengidentifikasi apakah line terebut termasuk INFO atau ERROR.
+![sourcecode-a](https://user-images.githubusercontent.com/55073331/113462791-dceee080-944c-11eb-915d-20f8f58896d3.jpg)
+Telah diinisialisasi variable baru bernama ```filename_log``` untuk memanggil isi dari ```syslog.log```
+```grep``` dengan parameter ```-E``` (extended) untuk mengidentidikasi baris yang mengandung string INFO dan ERROR , masing-masing hitungan disimpan dalam variable ```countinfo``` dan ```counterror```.
+##### b. Pesan Error
+Menggunakan regex untuk merekam pesan error dan menghitung jumlah pesan yang sama.
+![sourcecode-bc](https://user-images.githubusercontent.com/55073331/113462792-dd877700-944c-11eb-9819-348ea88acc15.jpg)
+```grep``` ERROR pada poin a kemudian menggunakan ```grep``` dengan parameter ```-P``` perl dan ```-o``` untuk output yang sesuai dengan ERROR. Baris ini merekam string dimulai setelah string ERROR sampai sebelum ada karakter ```(``` untuk merekam baris pesan error. Kemudian ```sort```untuk mengurutkan pesan error . kemudian ```uniq -c``` untuk menghitung berapa pesan error yang sama. Yang terakhir ```sort -nr``` untuk mengurutkan lagi sesuai dengan jumlah hitungan line yang sama dari yang terbesar.
+##### c. Jumlah kemunculan log ERROR dan INFO setiap user
+Menggunakan regex untuk mengidentifikasi line dengan string INFO dan ERROR
+[screenshot ada pada poin b]
+```grep``` INFO pada poin a kemudian ```grep``` dengan parameter ```-P``` perl dan ```-o``` untuk merekam string dari setelah karakter ```(``` sampai sebelum karakter ```)``` sebagai username (```Uname_input```) . kemudian diurutkan dan dihitung jumlah kemunculan username yang sama dengan ```sort | uniq```
+
+##### d. Menyimpan informasi b ke dalam file error_message.csv
+![sourcecode-d](https://user-images.githubusercontent.com/55073331/113462794-de200d80-944c-11eb-852e-3cd099dc44d7.jpg)
+
+Membuat  ```filename_error``` untuk menyimpan ke file ```error_message.csv``` kemudian print ```Error, Count``` pada line pertama sebagai header dari file tersebut. Selanjutnya ```cut ‘  ‘``` untuk menukar angka jumlah pesan error ke belakang.
+
+##### e. Menyimpan informasi c ke dalam user_statistic.csv
+![sourcecode-e](https://user-images.githubusercontent.com/55073331/113462796-deb8a400-944c-11eb-9274-263b3c56c3db.jpg)
+
+Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengidentifikasi dan ```wc -l``` untuk menghitung jumlah tiap line nya.
+
 ####Screenshot
+![output](https://user-images.githubusercontent.com/55073331/113462801-e415ee80-944c-11eb-857f-41d22f30843d.jpg)
+
+
 
 ####Kendala
 - Regex soosah
 - Kalo arraynya masih kosong somehow gabisa di pass ke argumen trus jadinya bingung mau bikin fungsi
 - Associative array ternyata gabisa ada spasi indexnya :(
-- Kalo ngeprint key associative array trus diikutin sesuatu jadi kehapus sebagian :/ (ini masi belum keresolve)
+- Kalo ngeprint key associative array trus diikutin sesuatu jadi kehapus sebagian :/ , setelah dicoba pakai compiler lain ternyata baru bisa. Untuk sebabnya, belum tahu
 
 ##Soal 2
 
