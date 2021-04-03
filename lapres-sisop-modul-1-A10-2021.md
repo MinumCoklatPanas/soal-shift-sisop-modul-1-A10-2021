@@ -7,7 +7,7 @@ Mengolah data dari file syslog.log dan melakukan analisis kemudian hasilnya disi
 
 ![syslog](https://user-images.githubusercontent.com/55073331/113462774-d06a8800-944c-11eb-8b88-2fd6f8b83e6a.jpg)
 
-####Solusi
+#### Solusi
 
 ##### a. Regex untuk mengidentifikasi ERROR atau INFO
 
@@ -45,12 +45,12 @@ Membuat  ```filename_error``` untuk menyimpan ke file ```error_message.csv``` ke
 
 Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengidentifikasi dan ```wc -l``` untuk menghitung jumlah tiap line nya.
 
-####Screenshot
+#### Screenshot
 ![output](https://user-images.githubusercontent.com/55073331/113462801-e415ee80-944c-11eb-857f-41d22f30843d.jpg)
 
 
 
-####Kendala
+#### Kendala
 - Regex soosah
 - Kalo arraynya masih kosong somehow gabisa di pass ke argumen trus jadinya bingung mau bikin fungsi
 - Associative array ternyata gabisa ada spasi indexnya :(
@@ -63,7 +63,7 @@ Aku dan Clemong adalah karyawan pertama dari TokoShiSop. Setelah tiga tahun beke
 ![Screenshot from 2021-04-03 16-20-54](https://user-images.githubusercontent.com/73766214/113477102-f96d3600-94a9-11eb-902e-993c4b5b9ab3.png)
 
 
-####Solusi
+#### Solusi
 
 ##### A. Menampilkan Row ID dan Profit Percentage terbesar
 - Set nilai awal max profit jadi 0
@@ -97,18 +97,18 @@ Aku dan Clemong adalah karyawan pertama dari TokoShiSop. Setelah tiga tahun beke
 - Menggunakan ```>``` untuk menampilkan output ke file yang berbeda, sehingga menjadi 
 ```Laporan-TokoShiSop.tsv > hasil.txt```
 
-####Screenshot
+#### Screenshot
 
 ![2](https://user-images.githubusercontent.com/73766214/113477146-2883a780-94aa-11eb-86a9-66b6af2afa96.png)
 
-####Kendala
+#### Kendala
 - Strict banget formattingnya ._. Kalo kutip akhir awk sama nama file ga dipisah pake spasi jadi ga kebaca.
 
 ## Soal 3
 
 Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun kuuhaku juga merupakan seorang yang pemalas dan pemalu. Kuuhaku tidak ingin temannya melihat koleksinya, bantulah kuuhaku agar keinginannya terwujud
 
-####Solusi
+#### Solusi
 
 ##### A. Mengunduh 23 gambar kucing serta menyimpan log-nya ke file "foto.log". Ada kemungkinan gambar yang sama terunduh lebih dari sekali, maka harus menghapus gambar yang sama kemudian menyimpan gambar dengan nama "Koleksi_XX" dengan nomor yang berurutan tanpa ada nomor yang hilang
 - Pertama bikin folder sementara namanya 'kucing'
@@ -155,7 +155,7 @@ Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun kuuhak
 
 ![crontab3e](https://user-images.githubusercontent.com/73766214/113477187-61238100-94aa-11eb-9a6a-1c365a6bd2bc.png)
 
-####Screenshot
+#### Screenshot
 
 ![3ab](https://user-images.githubusercontent.com/73766214/113477196-68e32580-94aa-11eb-9f14-8240e3fb1847.png)
 
@@ -163,7 +163,7 @@ Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun kuuhak
 
 ![hasil3d](https://user-images.githubusercontent.com/73766214/113477208-77c9d800-94aa-11eb-927b-69dcd5f42b44.png)
 
-####Kendala
+#### Kendala
 - regex soosah
 - awalnya mau make sed. Trus bingung caranya. Trus jadi sad :(
 - trus nyadar bisa make grep. trus gajadi sad :D
