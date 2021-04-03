@@ -58,6 +58,9 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 
 ##Soal 2
 
+![Screenshot from 2021-04-03 16-20-54](https://user-images.githubusercontent.com/73766214/113477102-f96d3600-94a9-11eb-902e-993c4b5b9ab3.png)
+
+
 ####Solusi
 
 ##### A
@@ -65,22 +68,32 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 - Hitung percentage masing-masing row sesuai rumus yang dikasih
 - Setiap kali ada yang percentagenya >= max profit, update jawaban
 
+![2a](https://user-images.githubusercontent.com/73766214/113477105-012cda80-94aa-11eb-8b27-e428b8beff6f.png)
+
 ##### B
 - Ubah formatting dari tabel jadi `nama-tanggal-bulan-tahun`
 - Parsing tabel yang baru menggunakan awk
 - Simpan di associative array agar elemen jadi unik
+
+![2b](https://user-images.githubusercontent.com/73766214/113477119-0db13300-94aa-11eb-8869-54eada0deaed.png)
 
 ##### C
 - Simpan variabel untuk counter masing-masing tipe
 - Setiap kali looping, increment counter tipe yang didapat
 - Print tipe dengan counter terkecil
 
+![2c](https://user-images.githubusercontent.com/73766214/113477122-11dd5080-94aa-11eb-82e9-0492e663143c.png)
+
 ##### D
 - Bikin associative array untuk counter tipe
 - Tiap looping increment isi array dengan jumlah profit
 - Di akhir cari isi array paling minimal.
 
+![2d](https://user-images.githubusercontent.com/73766214/113477134-1efa3f80-94aa-11eb-9413-a7ce426e0d0a.png)
+
 ####Screenshot
+
+![2](https://user-images.githubusercontent.com/73766214/113477146-2883a780-94aa-11eb-86a9-66b6af2afa96.png)
 
 ####Kendala
 - Strict banget formattingnya ._. Kalo kutip akhir awk sama nama file ga dipisah pake spasi jadi ga kebaca.
@@ -97,31 +110,50 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 - Append isi tmp.log ke foto.log biar nyatu semua lognya.
 - Setelah itu iterasi semua file di folder 'kucing' trus ubah namanya pakai command `mv`
 
+![3a](https://user-images.githubusercontent.com/73766214/113477152-30dbe280-94aa-11eb-9a6f-265fe1a6ca55.png)
+
 ##### B
 ###### Bash
 - Simpan tanggal sesuai format dengan command `$(date +%d-%m-%Y)`
 - Bikin foldernya pakai command `mkdir`
 - Sisanya sama kayak soal a ._.
 
+![3b](https://user-images.githubusercontent.com/73766214/113477156-376a5a00-94aa-11eb-943d-bc910f6dadb5.png)
+
 ###### Crontab
 - Cronnya `0 8 1/7,2/4 * *`
 - `0 8` Biar tiap tepat jam 8 dieksekusi
 - `1/7,2/4` Pakai `/` biar bisa loncat-loncat.
+
+![crontab3b](https://user-images.githubusercontent.com/73766214/113477161-43561c00-94aa-11eb-999a-ac3f7a1f333c.png)
 
 ##### C
 - Buat dapet tanggalnya pake command `date`
 - Buat bedain kapan harus kucing kapan harus kelinci bisa manfaatin paritas dari tanggal. Misal : kalo genap kucing, kalo ganjil kelinci
 - Sisanya sama kayak soal a ._. tinggal tambahin bagian kelinci
 
+![3c](https://user-images.githubusercontent.com/73766214/113477169-4f41de00-94aa-11eb-9a1c-ef47d90e25ac.png)
+![3cc](https://user-images.githubusercontent.com/73766214/113477173-510ba180-94aa-11eb-8dc7-6976fe8dc11f.png)
+
 ##### D
 - Pakai command `find -d` + regex buat nyari folder yang mau di zip
 - Pakai comman `zip -P` buat ngasih password
+
+![3d](https://user-images.githubusercontent.com/73766214/113477179-5b2da000-94aa-11eb-8a45-f31dc0ea9411.png)
 
 ##### E
 - Cron buat ngezipnya : `0 7 * * mon-fri` . Jalanin bash 3d setiap hari senin-jumat jam 7 pagi
 - Cront buat unzip : `1 18 * * mon-fri`. Buat unzip setiap jam 6 sore lewat 1 menit
 
+![crontab3e](https://user-images.githubusercontent.com/73766214/113477187-61238100-94aa-11eb-9a6a-1c365a6bd2bc.png)
+
 ####Screenshot
+
+![3ab](https://user-images.githubusercontent.com/73766214/113477196-68e32580-94aa-11eb-9f14-8240e3fb1847.png)
+
+![hasil3c](https://user-images.githubusercontent.com/73766214/113477200-6f719d00-94aa-11eb-8c47-450311764f28.png)
+
+![hasil3d](https://user-images.githubusercontent.com/73766214/113477208-77c9d800-94aa-11eb-927b-69dcd5f42b44.png)
 
 ####Kendala
 - regex soosah
