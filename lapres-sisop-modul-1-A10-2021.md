@@ -56,40 +56,46 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 - Associative array ternyata gabisa ada spasi indexnya :(
 - Kalo ngeprint key associative array trus diikutin sesuatu jadi kehapus sebagian :/ , setelah dicoba pakai compiler lain ternyata baru bisa. Untuk sebabnya, belum tahu
 
-##Soal 2
+## Soal 2
+
+Aku dan Clemong adalah karyawan pertama dari TokoShiSop. Setelah tiga tahun bekerja, Clemong diangkat menjadi manajer penjualan TokoShiSop, sedangkan aku menjadi kepala gudang yang mengatur keluar masuknya barang. Saat rapat, aku diminta untuk mencari beberapa kesimpulan dari data penjualan "Laporan-TokoShiSop.tsv"
 
 ![Screenshot from 2021-04-03 16-20-54](https://user-images.githubusercontent.com/73766214/113477102-f96d3600-94a9-11eb-902e-993c4b5b9ab3.png)
 
 
 ####Solusi
 
-##### A
+##### A. Menampilkan Row ID dan Profit Percentage terbesar
 - Set nilai awal max profit jadi 0
 - Hitung percentage masing-masing row sesuai rumus yang dikasih
 - Setiap kali ada yang percentagenya >= max profit, update jawaban
 
 ![2a](https://user-images.githubusercontent.com/73766214/113477105-012cda80-94aa-11eb-8b27-e428b8beff6f.png)
 
-##### B
+##### B. Menampilkan nama customer pada transaksi tahun 2017 di Albuquerque
 - Ubah formatting dari tabel jadi `nama-tanggal-bulan-tahun`
 - Parsing tabel yang baru menggunakan awk
 - Simpan di associative array agar elemen jadi unik
 
 ![2b](https://user-images.githubusercontent.com/73766214/113477119-0db13300-94aa-11eb-8869-54eada0deaed.png)
 
-##### C
+##### C. Menampilkan nama segment customer dan jumlah transaksinya yang paling sedikit
 - Simpan variabel untuk counter masing-masing tipe
 - Setiap kali looping, increment counter tipe yang didapat
 - Print tipe dengan counter terkecil
 
 ![2c](https://user-images.githubusercontent.com/73766214/113477122-11dd5080-94aa-11eb-82e9-0492e663143c.png)
 
-##### D
+##### D. Menampilkan wilayah bagian (Region) yang memiliki keuntungan (Profit) paling sedikit dan total keuntungan wilayah tersebut
 - Bikin associative array untuk counter tipe
 - Tiap looping increment isi array dengan jumlah profit
 - Di akhir cari isi array paling minimal.
 
 ![2d](https://user-images.githubusercontent.com/73766214/113477134-1efa3f80-94aa-11eb-9413-a7ce426e0d0a.png)
+
+##### E. Menampilkan output di file "hasil.txt"
+- Menggunakan ```>``` untuk menampilkan output ke file yang berbeda, sehingga menjadi 
+```Laporan-TokoShiSop.tsv > hasil.txt```
 
 ####Screenshot
 
@@ -98,11 +104,13 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 ####Kendala
 - Strict banget formattingnya ._. Kalo kutip akhir awk sama nama file ga dipisah pake spasi jadi ga kebaca.
 
-##Soal 3
+## Soal 3
+
+Kuuhaku adalah orang yang sangat suka mengoleksi foto-foto digital, namun kuuhaku juga merupakan seorang yang pemalas dan pemalu. Kuuhaku tidak ingin temannya melihat koleksinya, bantulah kuuhaku agar keinginannya terwujud
 
 ####Solusi
 
-##### A
+##### A. Mengunduh 23 gambar kucing serta menyimpan log-nya ke file "foto.log". Ada kemungkinan gambar yang sama terunduh lebih dari sekali, maka harus menghapus gambar yang sama kemudian menyimpan gambar dengan nama "Koleksi_XX" dengan nomor yang berurutan tanpa ada nomor yang hilang
 - Pertama bikin folder sementara namanya 'kucing'
 - Download gambar pakai command `wget`, simpan lognya di `tmp.log` dengan parameter -o, simpan gambarnya di folder tadi
 - Ambil nama file dari log. Caranya pakai regex di log buat cari nama file aslinya. Polanya pasti diawali dengan angka trus ujungnya jpg
@@ -112,7 +120,7 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 
 ![3a](https://user-images.githubusercontent.com/73766214/113477152-30dbe280-94aa-11eb-9a6f-265fe1a6ca55.png)
 
-##### B
+##### B. Menjalankan script sehari sekali pada jam 8 malam dari tanggal 1 tujuh hari sekali (1,8,...) serta dari tanggal 2 empat hari sekali (2,6,...). Gambar yang diunduh beserta log-nya, dipindahkan ke folder dengan nama tanggal unduhnya dengan format "DD-MM-YYYY"
 ###### Bash
 - Simpan tanggal sesuai format dengan command `$(date +%d-%m-%Y)`
 - Bikin foldernya pakai command `mkdir`
@@ -127,7 +135,7 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 
 ![crontab3b](https://user-images.githubusercontent.com/73766214/113477161-43561c00-94aa-11eb-999a-ac3f7a1f333c.png)
 
-##### C
+##### C. Mengunduh gambar kucing dan kelinci secara bergantian setiap harinya lalu disimpan di folder yang dibedakan oleh awalan "Kucing_" atau "Kelinci_"
 - Buat dapet tanggalnya pake command `date`
 - Buat bedain kapan harus kucing kapan harus kelinci bisa manfaatin paritas dari tanggal. Misal : kalo genap kucing, kalo ganjil kelinci
 - Sisanya sama kayak soal a ._. tinggal tambahin bagian kelinci
@@ -135,13 +143,13 @@ Setiap line pada informasi poin c di proses lagi dengan ```grep``` untuk mengide
 ![3c](https://user-images.githubusercontent.com/73766214/113477169-4f41de00-94aa-11eb-9a1c-ef47d90e25ac.png)
 ![3cc](https://user-images.githubusercontent.com/73766214/113477173-510ba180-94aa-11eb-8dc7-6976fe8dc11f.png)
 
-##### D
+##### D. Memindahkan seluruh folder ke zip yang diberi nama "Koleksi.zip" dan mengunci zip dengan password berupa tanggal saat ini dengan format "MMDDYYYY"
 - Pakai command `find -d` + regex buat nyari folder yang mau di zip
 - Pakai comman `zip -P` buat ngasih password
 
 ![3d](https://user-images.githubusercontent.com/73766214/113477179-5b2da000-94aa-11eb-8a45-f31dc0ea9411.png)
 
-##### E
+##### E. Membuat koleksinya ter-zip setiap hari kecuali sabtu dan minggu dari jam 7 pagi sampai jam 6 sore, selain dari waktu tersebut koleksinya ter-Unzip dan tidak ada file zip sama sekali
 - Cron buat ngezipnya : `0 7 * * mon-fri` . Jalanin bash 3d setiap hari senin-jumat jam 7 pagi
 - Cront buat unzip : `1 18 * * mon-fri`. Buat unzip setiap jam 6 sore lewat 1 menit
 
