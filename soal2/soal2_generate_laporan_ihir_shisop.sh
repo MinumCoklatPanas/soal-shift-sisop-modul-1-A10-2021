@@ -1,7 +1,6 @@
 #2a
-
 awk -F '\t' 'BEGIN{
-    max_profit = 0.0;
+    max_profit = 0;
     id = 1;
 } 
 {
@@ -18,7 +17,7 @@ END{
     printf "Transaksi terakhir dengan profit percentage terbesar yaitu %d\n",id
     printf "dengan presentase %.2f%%\n\n",max_profit;
 }
-' Laporan-TokoShiSop.tsv
+' Laporan-TokoShiSop.tsv > hasil.txt
 
 #2b
 awk -F '\t' '
@@ -46,16 +45,16 @@ awk -F '\t' 'BEGIN{
 {
     if ($8 == "Home Office")
         cnt_home++;
-    else if ($8 == "Consumer")
+    else if ($8 == "Customer")
         cnt_cust++;
     else if ($8 == "Corporate")
         cnt_corp++;
 }
-END{
-    printf "\nTipe segmen customer yang penjualannya paling sedikit adalah Home Office dengan %d total transaksi.\n\n",cnt_home
+END{ printf "\nTipe segmen customer yang penjualannya paling sedikit adalah Home Office dengan %d total transaksi.\n\n",cnt_home
 }
-' Laporan-TokoShiSop.tsv
+' Laporan-TokoShiSop.tsv > hasil.txt
 
+#2d
 awk -F '\t' 'BEGIN{
     cnt["Central"] = 0;
     cnt["South"] = 0;
@@ -68,16 +67,16 @@ awk -F '\t' 'BEGIN{
 END{
     mn = 100000
     name = "Central"
-    sum = 0
+	sum = 0
     for (key in cnt)
     {
         sum += cnt[key];
-        if (cnt[key] < mn && key != "Region")
+	if (cnt[key] < mn && key != "Region")
         {
             mn = cnt[key];
             name = key;
         }
     }
-    printf "Wilayah bagian (region) yang memiliki total keuntungan (profit) yang paling sedikit adalah %s dengan total keuntungan %d\n",name,cnt[name];
+    printf "Wilayah bagian (region) yang memiliki total keuntungan (profit) yang paling sedikit adalah %s dengan total keuntungan %.4f\n",name,cnt[name];
 }
-' Laporan-TokoShiSop.tsv
+' Laporan-TokoShiSop.tsv > hasil.txt
